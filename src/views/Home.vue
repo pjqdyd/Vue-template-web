@@ -1,18 +1,25 @@
+<!-- 主页 -->
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <nav-menu></nav-menu>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import NavMenu from "@/views/nav-menu/NavMenu.vue" //导航栏组件
 
 export default {
-  name: 'home',
+  data () {
+    return {
+    };
+  },
   components: {
-    HelloWorld
-  }
+      NavMenu
+  },
+  mounted: {},
+  methods: {}
 }
 </script>
+
+<style lang='scss' scoped>
+</style>
