@@ -6,7 +6,7 @@ import messages from './langs'
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
-  locale: localStorage.lang || 'cn', //默认的语言cn中文, 或从缓存中读取
+  locale: localStorage.LANG || 'cn', //默认的语言cn中文, 或从缓存中读取
   messages
 })
 locale.i18n((key, value) => i18n.t(key, value)) //为了实现element插件的多语言切换

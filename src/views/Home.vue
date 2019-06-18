@@ -2,8 +2,8 @@
 <template>
   <div>
     <nav-menu></nav-menu>
-    <el-button type="primary" @click="switchChinese()">切换中文</el-button>
-    <el-button type="primary" @click="switchEnlish()">切换英文</el-button>
+    <el-button type="primary" @click="switchLang('cn')">切换中文</el-button>
+    <el-button type="primary" @click="switchLang('en')">切换英文</el-button>
     <p>{{$t('lang.hello')}}</p>
   </div>
 </template>
@@ -16,16 +16,16 @@ export default {
     NavMenu
   },
   data() {
-    return {
-    };
+    return {};
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$t('lang.hello'))
+  },
   methods: {
-    switchChinese() {
-      this.$i18n.locale = "cn";
-    },
-    switchEnlish() {
-      this.$i18n.locale = "en";
+    //更改语言 val值'cn'或'en'
+    switchLang(val) {
+      this.$store.commit('setLang', val) //保存语言设置
+      this.$i18n.locale = val;           //切换语言
     }
   }
 };
