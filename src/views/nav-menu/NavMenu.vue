@@ -7,12 +7,12 @@
       mode="horizontal"
       @select="handleSelect"
     >
-      <el-menu-item index="1">首页</el-menu-item>
-      <el-menu-item index="2">第2页</el-menu-item>
-      <el-menu-item index="3">第3页</el-menu-item>
-      <el-menu-item index="4">第4页</el-menu-item>
-      <el-menu-item index="5">第5页</el-menu-item>
-      <el-menu-item index="6">第6页</el-menu-item>
+      <el-menu-item  index="1">首页</el-menu-item>
+      <el-menu-item  index="2">第2页</el-menu-item>
+      <el-menu-item  index="3">第3页</el-menu-item>
+      <el-menu-item  index="4">第4页</el-menu-item>
+      <el-menu-item  index="5">第5页</el-menu-item>
+      <el-menu-item  index="6">第6页</el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -36,8 +36,10 @@ export default {
 .nav-menu {
   background-image: linear-gradient(
     135deg,
-    rgba(114, 237, 242, 0.3) 10%,
-    #5151e5 100%
+     #5151e5 10%,
+     rgba(114, 237, 242, 0.5) 100%
   );
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
