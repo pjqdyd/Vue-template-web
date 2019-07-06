@@ -5,7 +5,9 @@
     class="theme-picker"
     popper-class="theme-picker-dropdown"
   />-->
-  <el-dropdown trigger="click">
+
+  <!-- 颜色下拉选框 -->
+  <el-dropdown trigger="click" @command="handThemeCommand">
     <span class="el-dropdown-link">
       主题
       <i class="el-icon-arrow-down el-icon--right"></i>
@@ -16,8 +18,9 @@
       <el-dropdown-item
         v-for="(item, index) in themeList"
         :key="index"
+        :command="item"
         :style="'color:'+item.val"
-        icon="iconfont icon-fangkuai1"
+        icon="iconfont icon-fangkuai"
       >{{item.name}}</el-dropdown-item>
 
     </el-dropdown-menu>
@@ -71,22 +74,21 @@ export default {
       : this.changeTheme(this.theme);
   },
   methods: {
+    handThemeCommand(item){ //主题点击事件
+      this.theme = item.val;//修改主题
+      this.$message({
+       dangerouslyUseHTMLString: true,
+       iconClass: "iconfont",
+       center: true,
+       message: '<p class="iconfont icon-fangkuai" style="color:' +item.val+ '"> 修改主题色'+item.name+'成功</p>'
+      })
+    },
     changeTheme(val) {
       const oldVal = this.chalk ? this.theme : ORIGINAL_THEME;
       if (typeof val !== "string") return;
       const themeCluster = this.getThemeCluster(val.replace("#", ""));
       const originalCluster = this.getThemeCluster(oldVal.replace("#", ""));
       //console.log(themeCluster, originalCluster)
-
-      const $message = this.$message({
-        //提示信息
-        message: "  Compiling the theme",
-        customClass: "theme-message",
-        type: "success",
-        duration: 0,
-        iconClass: "el-icon-loading"
-      });
-
       const getHandler = (variable, id) => {
         return () => {
           const originalCluster = this.getThemeCluster(
@@ -137,8 +139,6 @@ export default {
 
       this.$emit("change", val); //向外触发主题颜色改变事件
       this.$store.commit("setTheme", val); //保存主题颜色进入本地
-
-      $message.close(); //关闭提示
     },
 
     updateStyle(style, oldCluster, newCluster) {
@@ -213,7 +213,7 @@ export default {
 </script>
 
 <style>
-.theme-message,
+.theme-message
 .theme-picker-dropdown {
   z-index: 99999 !important;
 }
