@@ -17,7 +17,7 @@
         v-for="(item, index) in themeList"
         :key="index"
         :style="'color:'+item.val"
-        icon="el-icon-star-on"
+        icon="iconfont icon-fangkuai1"
       >{{item.name}}</el-dropdown-item>
 
     </el-dropdown-menu>
