@@ -1,6 +1,7 @@
-# vue-fashion-web 使用vue element-ui的一个宣传官网主页
+### vue-fashion-web 使用vue element-ui的一个宣传官网主页
+(待完善,文档更新中..)
 
-## Project setup
+### Project setup
 ```
 npm install
 ```
