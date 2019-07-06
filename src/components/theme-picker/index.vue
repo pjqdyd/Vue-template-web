@@ -1,10 +1,28 @@
 <template>
-  <el-color-picker
+  <!-- <el-color-picker
     v-model="theme"
     :predefine="['#409EFF', '#1890ff', '#304156','#212121','#11a983', '#13c2c2', '#6959CD', '#f5222d', ]"
     class="theme-picker"
     popper-class="theme-picker-dropdown"
-  />
+  />-->
+  <el-dropdown trigger="click">
+    <span class="el-dropdown-link">
+      主题
+      <i class="el-icon-arrow-down el-icon--right"></i>
+    </span>
+
+    <el-dropdown-menu slot="dropdown">
+
+      <el-dropdown-item
+        v-for="(item, index) in themeList"
+        :key="index"
+        :style="'color:'+item.val"
+        icon="el-icon-star-on"
+      >{{item.name}}</el-dropdown-item>
+
+    </el-dropdown-menu>
+  </el-dropdown>
+
 </template>
 
 <script>
@@ -15,17 +33,28 @@ export default {
   data() {
     return {
       chalk: "", // content of theme-chalk css
-      theme: "" //当前主题的颜色值
+      theme: "", //当前主题的颜色值
+      themeList: [
+        //当前可选的颜色
+        { val: "#409EFF", name: "星空蓝" },
+        { val: "#f5222d", name: "苹果红" },
+        { val: "#304156", name: "商务灰" },
+        { val: "#212121", name: "默认黑" },
+        { val: "#11a983", name: "清新绿" },
+        { val: "#13c2c2", name: "魔法蓝" }
+      ]
     };
   },
   computed: {
-    defaultTheme() { //计算默认的主题色
+    defaultTheme() {
+      //计算默认的主题色
       let storageTheme = this.$store.state.theme; //从vuex的store读取缓存的主题色
       return typeof storageTheme == "string" ? storageTheme : ORIGINAL_THEME;
     }
   },
   watch: {
-    defaultTheme: { //监听默认的主题色
+    defaultTheme: {
+      //监听默认的主题色
       handler: function(val) {
         this.theme = val; //更改当前主题色
       },
@@ -35,7 +64,8 @@ export default {
       this.changeTheme(val);
     }
   },
-  created() { //在页面刷新或初次加载后,设置当前的主题色(来源于缓存或者默认)
+  created() {
+    //在页面刷新或初次加载后,设置当前的主题色(来源于缓存或者默认)
     this.theme == ORIGINAL_THEME
       ? console.log("默认主题")
       : this.changeTheme(this.theme);
@@ -196,5 +226,11 @@ export default {
 
 .theme-picker-dropdown .el-color-dropdown__link-btn {
   display: none;
+}
+.el-dropdown-link {
+  cursor: pointer;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
 }
 </style>
