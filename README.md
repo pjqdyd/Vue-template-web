@@ -1,4 +1,4 @@
-# vue-fashion-web
+# vue-fashion-web 使用vue element-ui的一个宣传官网主页
 
 ## Project setup
 ```
