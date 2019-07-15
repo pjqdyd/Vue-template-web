@@ -7,14 +7,13 @@
   />-->
 
   <!-- 颜色下拉选框 -->
-  <el-dropdown trigger="click" @command="handThemeCommand">
+  <el-dropdown trigger="click" @command="handThemeCommand" @visible-change="handOpenOrClose">
     <span class="el-dropdown-link">
-      主题
+      {{$t('lang.theme')}}<!-- 来自对应语言的主题-->
       <i class="el-icon-arrow-down el-icon--right"></i>
     </span>
 
     <el-dropdown-menu slot="dropdown">
-
       <el-dropdown-item
         v-for="(item, index) in themeList"
         :key="index"
@@ -22,10 +21,8 @@
         :style="'color:'+item.val"
         icon="iconfont icon-fangkuai"
       >{{item.name}}</el-dropdown-item>
-
     </el-dropdown-menu>
   </el-dropdown>
-
 </template>
 
 <script>
@@ -37,15 +34,8 @@ export default {
     return {
       chalk: "", // content of theme-chalk css
       theme: "", //当前主题的颜色值
-      themeList: [
-        //当前可选的颜色
-        { val: "#409EFF", name: "星空蓝" },
-        { val: "#f5222d", name: "苹果红" },
-        { val: "#304156", name: "商务灰" },
-        { val: "#212121", name: "默认黑" },
-        { val: "#11a983", name: "清新绿" },
-        { val: "#13c2c2", name: "魔法蓝" }
-      ]
+      isSuccess: true, //是否加载主题成功
+      themeList: this.$t("themeList.list") //来自对应语言的主题列表
     };
   },
   computed: {
@@ -74,14 +64,12 @@ export default {
       : this.changeTheme(this.theme);
   },
   methods: {
-    handThemeCommand(item){ //主题点击事件
-      this.theme = item.val;//修改主题
-      this.$message({
-       dangerouslyUseHTMLString: true,
-       iconClass: "iconfont",
-       center: true,
-       message: '<p class="iconfont icon-fangkuai" style="color:' +item.val+ '"> 修改主题色'+item.name+'成功</p>'
-      })
+    handThemeCommand(item) {
+      //主题点击事件
+      this.theme = item.val; //修改主题
+    },
+    handOpenOrClose(){//展开关闭事件
+      this.themeList = this.$t("themeList.list");
     },
     changeTheme(val) {
       const oldVal = this.chalk ? this.theme : ORIGINAL_THEME;
@@ -110,7 +98,7 @@ export default {
         };
       };
 
-      if (!this.chalk) {
+      if (!this.chalk) { //获取element的theme-chalk
         const url = `https://unpkg.com/element-ui@${version}/lib/theme-chalk/index.css`;
         this.getCSSString(url, "chalk");
       }
@@ -137,8 +125,17 @@ export default {
         );
       });
 
-      this.$emit("change", val); //向外触发主题颜色改变事件
-      this.$store.commit("setTheme", val); //保存主题颜色进入本地
+      if (this.isSuccess == true) {//判断是否加载主题成功
+        this.$store.commit("setTheme", val); //保存主题颜色进入本地
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          iconClass: "iconfont",
+          center: true,
+          duration: 1000,
+          message: '<p class="iconfont icon-fangkuai" style="color:' +val+ '"> 修改主题色成功 Success</p>'
+        });
+      }
+       this.$emit("change", val); //向外触发主题颜色改变事件
     },
 
     updateStyle(style, oldCluster, newCluster) {
@@ -155,7 +152,10 @@ export default {
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4 && xhr.status === 200) {
             this[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, "");
+            this.isSuccess = true;
             resolve();
+          } else {
+            this.isSuccess = false;
           }
         };
         xhr.open("GET", url);
@@ -213,8 +213,7 @@ export default {
 </script>
 
 <style>
-.theme-message
-.theme-picker-dropdown {
+.theme-message .theme-picker-dropdown {
   z-index: 99999 !important;
 }
 
