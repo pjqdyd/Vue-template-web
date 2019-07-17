@@ -2,6 +2,7 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 const cn = {
     lang: {
         'hello': '你好，世界',
+        'language': '中文',
         'theme': '主题'
     },
     button:{

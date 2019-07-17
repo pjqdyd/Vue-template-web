@@ -7,7 +7,7 @@
   />-->
 
   <!-- 颜色下拉选框 -->
-  <el-dropdown trigger="click" @command="handThemeCommand" @visible-change="handOpenOrClose">
+  <el-dropdown @command="handThemeCommand" @visible-change="handOpenOrClose">
     <span class="el-dropdown-link">
       {{$t('lang.theme')}}<!-- 来自对应语言的主题-->
       <i class="el-icon-arrow-down el-icon--right"></i>

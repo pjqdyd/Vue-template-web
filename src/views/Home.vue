@@ -2,21 +2,21 @@
 <template>
   <div>
     <nav-menu></nav-menu>
-    <el-button type="primary" @click="switchLang('cn')">切换中文</el-button>
-    <el-button type="primary" @click="switchLang('en')">切换英文</el-button>
-    <p>{{$t('lang.hello')}}</p>
-    <theme-picker></theme-picker>
+    <page-one></page-one>
+    <page-two></page-two>
   </div>
 </template>
 
 <script>
 import NavMenu from "@/views/nav-menu/NavMenu.vue"; //导航栏组件
-import ThemePicker from "@/components/theme-picker/index.vue"; //主题选择插件
+import PageOne from "@/views/page-1/PageOne"; //第一页
+import PageTwo from "@/views/page-2/PageTwo"; //第二页
 
 export default {
   components: {
     NavMenu,
-    ThemePicker
+    PageOne,
+    PageTwo
   },
   data() {
     return {
@@ -26,11 +26,6 @@ export default {
     console.log(this.$t("lang.hello"));
   },
   methods: {
-    //更改语言 val值'cn'或'en'
-    switchLang(val) {
-      this.$store.commit("setLang", val); //保存语言设置
-      this.$i18n.locale = val; //切换语言
-    }
   }
 };
 </script>
