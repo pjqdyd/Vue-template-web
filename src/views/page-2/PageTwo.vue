@@ -1,7 +1,7 @@
 <!-- 第2页 -->
 <template>
   <div>
-    <div class="page-two" :style=" 'height:'+curHeight+'px' ">2</div>
+    <div id="page-two" class="page-two" :style=" 'height:'+curHeight+'px' ">2</div>
   </div>
 </template>
 
@@ -24,7 +24,11 @@ export default {
 <style lang='scss' scoped>
 .page-two {
   width: 100%;
-  background-color: #eaeaea;
-  margin-bottom: 10px;
+  font-size: 50px;
+  color: #fff;
+  background-color: #7367F0;
+  margin-top: 10px;
+  padding: 25%;
+  box-sizing: border-box;
 }
 </style>

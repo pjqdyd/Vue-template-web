@@ -2,7 +2,7 @@
 <template>
   <div>
     <el-menu
-      :default-active="activeIndex"
+      :default-active="pageIndex"
       class="el-menu-demo nav-menu"
       mode="horizontal"
       @select="handleSelect"
@@ -30,21 +30,32 @@ export default {
     LangPicker,
     ThemePicker
   },
+  props:{
+    pageIndex: {
+      type: String,
+      default: "1"
+    }
+  },
   data() {
-    return {
-      activeIndex: "1"
-    };
+    return { };
   },
   methods: {
+
+    //当前点击的选项
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+      this.$emit("selectChange", key); //向外触发选项改变事件, key是选项序号
     },
+
   }
 };
 </script>
 
 <style lang='scss' scoped>
 .nav-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-image: linear-gradient(
     135deg,
     #5151e5 10%,
