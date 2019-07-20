@@ -3,7 +3,7 @@
   <div>
     <!-- 语言选择下拉选框 -->
     <el-dropdown @command="handLanguageCommand">
-      <div class="dropdown-box el-dropdown-link" >
+      <div class="el-dropdown-link" >
         <!--中文/English-->
         {{$t('lang.language')}}
       </div>
@@ -31,7 +31,4 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.dropdown-box{
-    margin: 15px;
-}
 </style>
