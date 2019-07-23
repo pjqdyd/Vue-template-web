@@ -8,7 +8,7 @@
 
   <!-- 颜色下拉选框 -->
   <el-dropdown @command="handThemeCommand" @visible-change="handOpenOrClose">
-    <span class="el-dropdown-link">
+    <span class="el-dropdown-link default-text-color">
       {{$t('lang.theme')}}<!-- 来自对应语言的主题-->
       <i class="el-icon-arrow-down el-icon--right"></i>
     </span>

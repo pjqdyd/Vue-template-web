@@ -1,7 +1,7 @@
 <!-- 第3页 -->
 <template>
   <div>
-    <div id="page-three" class="page-three" :style=" 'height:'+curHeight+'px' ">3</div>
+    <div id="page-three" class="page-three">3</div>
   </div>
 </template>
 
@@ -10,12 +10,9 @@ export default {
   components: {},
   data() {
     return {
-      curHeight: "" //窗口高度
     };
   },
   mounted() {
-    var h = document.documentElement.clientHeight || document.body.clientHeight;
-    this.curHeight = h; //获取窗口height
   },
   methods: {}
 };
@@ -24,6 +21,7 @@ export default {
 <style lang='scss' scoped>
 .page-three {
   width: 100%;
+  height: 1000px;
   font-size: 50px;
   color: #fff;
   background-color: #9708CC;

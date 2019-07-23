@@ -3,7 +3,10 @@
   <div>
     <el-menu
       :default-active="pageIndex"
+      :active-text-color="$store.state.theme"
+      text-color="#304156"
       class="el-menu-demo nav-menu"
+      style="box-shadow: 0  1px 10px rgba(0, 0, 150, .2);"
       mode="horizontal"
       @select="handleSelect"
     >
@@ -11,7 +14,6 @@
       <el-menu-item index="2">第2页</el-menu-item>
       <el-menu-item index="3">第3页</el-menu-item>
       <el-menu-item index="4">第4页</el-menu-item>
-      <el-menu-item index="5">第5页</el-menu-item>
 
       <div class="el-item-box">
         <lang-picker></lang-picker>
@@ -57,16 +59,21 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  background-image: linear-gradient(
-    135deg,
-    #5151e5 10%,
-    rgba(114, 237, 242, 0.5) 100%
-  );
+  height: 50px;
+  background: rgba($color: #ffffff, $alpha: 0.2);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  .el-item-box{
+  .el-menu-item {
+    height: 50px;
+    line-height: 50px;
+  }
+  .el-item-box {
     margin: 15px;
+    color: #304156;
   }
 }
+ .el-menu--horizontal {
+    border-bottom: 0 !important;
+  }
 </style>

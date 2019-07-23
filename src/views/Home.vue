@@ -1,7 +1,7 @@
 <!-- 主页 -->
 <template>
   <div>
-    <nav-menu @selectChange="handSelectChange" :pageIndex="pageIndex"></nav-menu>
+    <nav-menu :pageIndex="pageIndex" @selectChange="handSelectChange"></nav-menu>
     <page-one></page-one>
     <page-two></page-two>
     <page-three></page-three>
@@ -50,12 +50,12 @@ export default {
       this.pageFour = document.getElementById("page-four").offsetTop;             
     },
 
-    //滑轮滚动事件 返回滑轮初始距顶部的距离
+    // 返回滑轮距顶部的距离
     getPulleyTopDistance() {
       var that = this;
+       //监听滑轮滚动事件
       window.onscroll = function() {
-        that.scrolltop =
-          document.documentElement.scrollTop || document.body.scrollTop;
+        that.scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
       };
     },
 
@@ -80,7 +80,7 @@ export default {
      // 页面page向上滚动和向下滚动的函数
      // top是page距窗体顶部的距离, distance当前滚动条与窗体顶部的距离
     pulleyRoll(top, distance){
-      /*向下滚动*/
+      /*页面上滚*/
       if(distance < top){
         let small_interval = (top-distance)/50;
         let i = 0;
@@ -93,12 +93,12 @@ export default {
           }
         },10)
       }
-      /*向上滚动*/
+      /*页面下滚*/
       else if(distance > top){
         let small_interval = (distance - top)/50;
         let i = 0;
         let timer = setInterval(()=>{
-          i ++;
+          i++;
           distance -= small_interval;
           document.documentElement.scrollTop = distance;
           if(i == 50){
@@ -118,7 +118,7 @@ export default {
         this.pageIndex = "2";
       } else if (val > this.pageThree && val <= this.pageFour) {
         this.pageIndex = "3";
-      } else if (val > this.pageFour && val <= this.pageFive) {
+      } else if (val > this.pageFour) {
         this.pageIndex = "4";
       }
     }

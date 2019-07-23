@@ -16,4 +16,8 @@ body {
   padding: 0;
   margin: 0;
 }
+/* 默认文字颜色 */
+.default-text-color{
+  color: #304156;
+}
 </style>

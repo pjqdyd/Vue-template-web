@@ -3,7 +3,7 @@
   <div>
     <!-- 语言选择下拉选框 -->
     <el-dropdown @command="handLanguageCommand">
-      <div class="el-dropdown-link" >
+      <div class="el-dropdown-link default-text-color">
         <!--中文/English-->
         {{$t('lang.language')}}
       </div>
