@@ -13,10 +13,10 @@ const en = {
             //当前可选的颜色
             { val: "#409EFF", name: "Sky Blue" },
             { val: "#f5222d", name: "Apple Red" },
-            { val: "#304156", name: "Business ash" },
+            { val: "#304156", name: "Business Ash" },
             { val: "#212121", name: "Default Black" },
             { val: "#11a983", name: "Pure Green" },
-            { val: "#13c2c2", name: "Magic blue" }
+            { val: "#13c2c2", name: "Magic Blue" }
           ]
     },
     ...enLocale
