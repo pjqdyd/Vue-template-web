@@ -10,15 +10,18 @@
       mode="horizontal"
       @select="handleSelect"
     >
-      <el-menu-item index="1">首页</el-menu-item>
-      <el-menu-item index="2">第2页</el-menu-item>
-      <el-menu-item index="3">第3页</el-menu-item>
-      <el-menu-item index="4">第4页</el-menu-item>
+      <!-- 页面(中/英文显示) -->
+      <el-menu-item index="1">{{$t('pages.page1')}}</el-menu-item>
+      <el-menu-item index="2">{{$t('pages.page2')}}</el-menu-item>
+      <el-menu-item index="3">{{$t('pages.page3')}}</el-menu-item>
+      <el-menu-item index="4">{{$t('pages.page4')}}</el-menu-item>
 
+      <!-- 语言选框 -->
       <div class="el-item-box">
         <lang-picker></lang-picker>
       </div>
 
+      <!-- 主题颜色选框 -->
       <div class="el-item-box">
         <theme-picker></theme-picker>
       </div>

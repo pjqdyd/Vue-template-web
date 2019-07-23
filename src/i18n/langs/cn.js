@@ -5,6 +5,12 @@ const cn = {
         'language': '中文',
         'theme': '主题'
     },
+    pages:{
+        'page1': "首页",
+        'page2': "第2页",
+        "page3": "第3页",
+        "page4": "第4页"
+    },
     button:{
         'delete': '删除',
     },

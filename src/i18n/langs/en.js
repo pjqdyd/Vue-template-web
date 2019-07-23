@@ -5,6 +5,12 @@ const en = {
         'language': 'English',
         'theme': 'Theme'
     },
+    pages:{
+        'page1': "Home page",
+        'page2': "Page 2",
+        "page3": "Page 3",
+        "page4": "Page 4"
+    },
     button:{
         'delete': 'Delete',
     },
