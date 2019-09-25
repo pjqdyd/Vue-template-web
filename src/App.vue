@@ -20,4 +20,12 @@ body {
 .default-text-color{
   color: #304156;
 }
+
+/* 覆盖折叠面板的'>'图标默认样式, 隐藏 */ 
+.el-collapse-item__arrow{
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  /* opacity: 0; */
+}
 </style>
