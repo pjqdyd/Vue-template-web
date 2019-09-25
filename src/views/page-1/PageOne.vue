@@ -3,7 +3,6 @@
   <div>
     <!-- <div id="page-one" class="page-one" :style=" 'height:'+curHeight+'px' ">1</div> -->
     <div id="page-one" class="page-one">1
-       <el-button @click="handRequestTest">测试</el-button>
     </div>
   </div>
 </template>
@@ -21,19 +20,6 @@ export default {
     //this.curHeight = h; //获取窗口height
   },
   methods: {
-    //测试
-    async handRequestTest(){
-      console.log("test");
-      try {
-          var result= await this.$globalRequest.test4(1001); //测试请求
-
-          console.log(result);
-          this.$message.success('测试成功');
-
-        } catch (err) {
-          this.$message.info(err.msg);
-        }
-    }
   }
 };
 </script>

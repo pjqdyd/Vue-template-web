@@ -1,7 +1,14 @@
 <!-- 主页 -->
 <template>
   <div>
-    <nav-menu :pageIndex="pageIndex" @selectChange="handSelectChange"></nav-menu>
+    <!-- 折叠面板 (消除默认样式)-->
+    <el-collapse v-model="activeNames">
+      <el-collapse-item style="height: 0; width: 0;" name="nav">
+        <!-- 导航栏 -->
+        <nav-menu :pageIndex="pageIndex" @selectChange="handSelectChange"></nav-menu>
+      </el-collapse-item>
+    </el-collapse>
+    
     <page-one></page-one>
     <page-two></page-two>
     <page-three></page-three>
@@ -29,6 +36,8 @@ export default {
       pageIndex: "1", //当前页的序号
       scrolltop: 0, //滑轮距顶部的距离
 
+      activeNames: ['nav'], //折叠面板显示导航栏nav
+
       pageOne: 0, //页面距离窗口顶部的距离
       pageTwo: 0,
       pageThree: 0,
@@ -53,10 +62,17 @@ export default {
     // 返回滑轮距顶部的距离
     getPulleyTopDistance() {
       var that = this;
-       //监听滑轮滚动事件
+       //监听页面滚动事件
       window.onscroll = function() {
         that.scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
       };
+
+      //监听鼠标滚动
+      window.onmousewheel = function(e){
+        //e.deltaY大于0上滚, 隐藏导航栏, 反之显示导航栏
+        e.deltaY > 0 ? that.activeNames = [''] : that.activeNames = ['nav'];
+      }
+
     },
 
     //选项改变的回调函数, 设置滚动到对应的page
