@@ -1,30 +1,6 @@
-### vue-fashion-web 使用vue element-ui的一个宣传官网主页
-(待完善,文档更新中..)
+### vue-template-web 使用vue element-ui的一个简单模板主页
 
-### Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### 效果图:
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![效果图](./src/assets/vue-template-web.gif)
