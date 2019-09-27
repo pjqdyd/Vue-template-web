@@ -36,7 +36,7 @@
 
 #### 如何运行:
 
-   -.将克隆项目下来(`git clone https://github.com/pjqdyd/Vue-template-web`).
+   -.将克隆项目下来(`git clone https://github.com/pjqdyd/Vue-template-web.git`).
    
    -.运行`npm install`下载依赖(如果下载慢:`npm install --registry=https://registry.npm.taobao.org`).
    
