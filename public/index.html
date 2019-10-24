@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="<%= BASE_URL %>loading-div.css">
     <title>vue-template-web</title>
   </head>
   <body>
@@ -14,7 +15,16 @@
 
     <!-- 首屏加载 -->
     <div id="init-loading-div">
-      加载中..
+      <image id="load-icon" src="<%= BASE_URL %>favicon.ico"></image>
+      <div id="load">
+        <div>G</div>
+        <div>N</div>
+        <div>I</div>
+        <div>D</div>
+        <div>A</div>
+        <div>O</div>
+        <div>L</div>
+      </div>
     </div>
 
     <div id="app"></div>
