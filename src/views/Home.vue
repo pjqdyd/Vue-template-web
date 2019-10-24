@@ -2,8 +2,8 @@
 <template>
   <div>
     <!-- 折叠面板 (height:0消除默认样式)-->
-    <el-collapse v-model="activeNames">
-      <el-collapse-item style="height: 0;" name="nav">
+    <el-collapse v-model="activeNames" style="border: 0;">
+      <el-collapse-item style="height: 0; margin-botttom:0;" name="nav">
         <!-- 导航栏 -->
         <nav-menu :pageIndex="pageIndex" @selectChange="handSelectChange"></nav-menu>
       </el-collapse-item>
