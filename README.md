@@ -43,6 +43,15 @@
    -.运行`npm run serve`启动项目, 访问`http://localhost:8080`浏览页面.
    
    -.运行`npm run build`编译打包项目.
+
+#### 注意:
+ 新分支[Vue-template-web-cdn](https://github.com/pjqdyd/Vue-template-web/tree/Vue-template-web-cdn)使用了CDN来加载部分依赖, 防止了打包后js文件过大,首屏加载过久的问题.
+
+ 经测试:
+
+    master分支运行npm run build后dist文件夹大小为_4M_左右;
+
+    Vue-template-web-cdn分支打包后的dist文件夹减少至_100kb_左右;
    
 #### 提示:
  
