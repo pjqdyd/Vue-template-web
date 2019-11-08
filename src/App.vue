@@ -1,17 +1,25 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="isShow">
     <router-view/>
   </div>
 </template>
 
 <script>
   export default {
-    //如果加载完成, 移除index.html的加载动画
-    created(){
-      let loading = document.getElementById("init-loading-div");
-      if(loading != null){
-        document.body.removeChild(loading);
+    data(){
+      return{
+        "isShow": false //是否显示内容
       }
+    },
+    //如果加载完成, 移除index.html的加载动画, 显示vue挂载的内容
+    beforeCreate(){
+      setTimeout(() =>{
+        let loadingBox = document.getElementById("init-loading-div");
+        if(loadingBox != null){
+          document.body.removeChild(loadingBox);
+        }
+        this.isShow = true; //显示vue挂载的内容
+      },1500);
     }
   }
 </script>
