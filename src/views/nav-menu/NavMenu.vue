@@ -80,6 +80,6 @@ export default {
     border-bottom: 0 !important;
   }
   .el-menu-item:not(.is-disabled):focus, .el-menu-item:not(.is-disabled):hover, .el-submenu__title:hover {
-    background-color: $nav-bgColor;
+    background-color: rgba($color: #ffffff, $alpha: 0.2);
 }
 </style>
