@@ -55,7 +55,7 @@
     
  因此建议使用Vue-template-web-cdn分支;
     
-2. 优化使用window.scrollTo(options)锚点滚动后, 注意浏览器的兼容性:[window.scrollTo兼容](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo), 当然你可以选择之前的提交版本的方式兼容其他浏览器;
+ 2. 优化使用window.scrollTo(options)锚点滚动后, 注意浏览器的兼容性:[window.scrollTo兼容](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo), 当然你可以选择之前的提交版本的方式兼容其他浏览器;
    
 #### 提示:
  
