@@ -45,13 +45,15 @@
    -.运行`npm run build`编译打包项目.
 
 #### 注意:
- 新分支[Vue-template-web-cdn](https://github.com/pjqdyd/Vue-template-web/tree/Vue-template-web-cdn)使用了CDN来加载部分依赖, 防止了打包后js文件过大,首屏加载过久的问题.
+ 1.新分支[Vue-template-web-cdn](https://github.com/pjqdyd/Vue-template-web/tree/Vue-template-web-cdn)使用了CDN来加载部分依赖, 防止了打包后js文件过大,首屏加载过久的问题.
 
  经测试:
 
     master分支运行npm run build后dist文件夹大小为_4M_左右;
 
     Vue-template-web-cdn分支打包后的dist文件夹减少至_100kb_左右;
+    
+2. 优化使用window.scrollTo()锚点滚动后, 注意浏览器的兼容性:[window.scrollTo兼容](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo);
    
 #### 提示:
  
