@@ -58,28 +58,33 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+$nav-height: 50px;
+$nav-bgColor:  rgba($color: #ffffff, $alpha: 0.2);
+
 .nav-menu {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 50px;
-  background: rgba($color: #ffffff, $alpha: 0.2);
+  height: $nav-height;
+  background: $nav-bgColor;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   .el-menu-item {
-    height: 50px;
-    line-height: 50px;
+    padding: 0 3%;
+    height: $nav-height;
+    line-height: $nav-height;
   }
   .el-item-box {
-    margin: 15px;
+    margin: 1%; 
     color: #304156;
   }
 }
- .el-menu--horizontal {
-    border-bottom: 0 !important;
-  }
-  .el-menu-item:not(.is-disabled):focus, .el-menu-item:not(.is-disabled):hover, .el-submenu__title:hover {
-    background-color: rgba($color: #ffffff, $alpha: 0.2);
+.el-menu--horizontal {
+  border-bottom: 0 !important;
+}
+
+.el-menu-item:not(.is-disabled):focus, .el-menu-item:not(.is-disabled):hover, .el-submenu__title:hover {
+    background-color: $nav-bgColor;
 }
 </style>

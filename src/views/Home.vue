@@ -62,16 +62,20 @@ export default {
     // 返回滑轮距顶部的距离
     getPulleyTopDistance() {
       var that = this;
-       //监听页面滚动事件
-      window.onscroll = function() {
-        that.scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+      var waiting = false; //用于优化监听scroll, 300ms执行一次
+       
+      window.onscroll = function() { //监听页面滚动事件
+          if (waiting) {return;}
+          waiting = true;
+          let distance = document.documentElement.scrollTop || document.body.scrollTop; //获取页面元素距离顶部的距离
+          //大于0表示上滚, 隐藏导航栏, 反之显示导航栏
+          distance - that.scrolltop > 0 ? that.activeNames = [''] : that.activeNames = ['nav'];
+          //赋值修改页面距顶部的距离
+          that.scrolltop = distance; 
+          setTimeout(function () { //优化监听scroll, 300ms执行一次
+            waiting = false;
+          }, 300);
       };
-
-      //监听鼠标滚动
-      window.onmousewheel = function(e){
-        //e.deltaY大于0上滚, 隐藏导航栏, 反之显示导航栏
-        e.deltaY > 0 ? that.activeNames = [''] : that.activeNames = ['nav'];
-      }
 
     },
 
@@ -79,49 +83,27 @@ export default {
     handSelectChange(index) {
       switch (index) {
         case "1":
-          this.pulleyRoll(this.pageOne, this.scrolltop);
+          this.pulleyRoll(this.pageOne);
           break;
         case "2":
-          this.pulleyRoll(this.pageTwo, this.scrolltop);
+          this.pulleyRoll(this.pageTwo);
           break;
         case "3":
-          this.pulleyRoll(this.pageThree, this.scrolltop);
+          this.pulleyRoll(this.pageThree);
           break;
         case "4":
-          this.pulleyRoll(this.pageFour, this.scrolltop);
+          this.pulleyRoll(this.pageFour);
           break;
       }
     },
 
-     // 页面page向上滚动和向下滚动的函数
-     // top是page距窗体顶部的距离, distance当前滚动条与窗体顶部的距离
-    pulleyRoll(top, distance){
-      /*页面上滚*/
-      if(distance < top){
-        let small_interval = (top-distance)/50;
-        let i = 0;
-        let timer = setInterval(()=>{
-          i++;
-          distance+= small_interval;
-          document.documentElement.scrollTop = distance;
-          if(i == 50){
-            clearInterval(timer);
-          }
-        },10)
-      }
-      /*页面下滚*/
-      else if(distance > top){
-        let small_interval = (distance - top)/50;
-        let i = 0;
-        let timer = setInterval(()=>{
-          i++;
-          distance -= small_interval;
-          document.documentElement.scrollTop = distance;
-          if(i == 50){
-            clearInterval(timer);
-          }
-        },10);
-      }
+    // top是page距窗体顶部的距离
+    pulleyRoll(top){
+      //设置页面滚动到的的位置
+      window.scrollTo({ 
+        top: top, 
+        behavior: "smooth" 
+      });
     }
   },
   watch: {
