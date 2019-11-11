@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-$nav-height: 50px;
+$nav-height: 40px;
 $nav-bgColor:  rgba($color: #ffffff, $alpha: 0.2);
 
 .nav-menu {
