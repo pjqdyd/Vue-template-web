@@ -45,7 +45,7 @@
    -.运行`npm run build`编译打包项目.
 
 #### 注意:
- 1.新分支[Vue-template-web-cdn](https://github.com/pjqdyd/Vue-template-web/tree/Vue-template-web-cdn)使用了CDN来加载部分依赖, 防止了打包后js文件过大,首屏加载过久的问题.
+1.新分支[Vue-template-web-cdn](https://github.com/pjqdyd/Vue-template-web/tree/Vue-template-web-cdn)使用了CDN来加载部分依赖, 防止了打包后js文件过大,首屏加载过久的问题.
 
  经测试:
 
@@ -53,15 +53,18 @@
 
     Vue-template-web-cdn分支打包后的dist文件夹减少至_100kb_左右;
     
- 因此建议使用Vue-template-web-cdn分支;
+因此建议使用Vue-template-web-cdn分支;
     
- 2. 优化使用window.scrollTo(options)锚点滚动后, 注意浏览器的兼容性:[window.scrollTo兼容](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo), 当然你可以选择之前的提交版本的方式兼容其他浏览器;
+2.优化使用window.scrollTo(options)锚点滚动后, 注意浏览器的兼容性:[window.scrollTo兼容](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo), 当然你可以选择之前的提交版本的方式兼容其他浏览器;
    
 #### 提示:
  
    1.项目实现了vue element-ui i8n国际化,中英文切换是定义了两套语言,在[i18n/langs/](./src/i18n/langs)下定义了.
    
-   2.主题改变实现是参照[官方换肤案例](https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/advanced/theme.html#%E6%A0%B7%E5%BC%8F%E8%A6%86%E7%9B%96), 在项目中通过this.$store.state.theme可以获取主题色值.
+   2.主题改变实现: 
+   
+   之前是参照[官方换肤案例](https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/advanced/theme.html#%E6%A0%B7%E5%BC%8F%E8%A6%86%E7%9B%96)来实现的,可以连同ElementUI的组件一起改变颜色, 由于此种
+   方式比较繁琐可能出现未知bug, 因此目前采用直接保存一个颜色值来改变主题,在项目中通过this.$store.state.theme可以获取主题色值.
    
    3.页面锚点滚动参照了[这个开源项目](https://github.com/ityadong/VueAnchor).
    
