@@ -74,7 +74,7 @@ export default {
           that.scrolltop = distance; 
           setTimeout(function () { //优化监听scroll, 300ms执行一次
             waiting = false;
-          }, 300);
+          }, 150);
       };
 
     },
