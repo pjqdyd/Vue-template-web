@@ -3,7 +3,7 @@ import { createError } from './util'
 import { Message } from 'element-ui';
 
 //const ip = 'http://localhost:8080'; //baseUrl
-const ip = 'https://www.easy-mock.com/mock/5c8dd97d6fe7c7611499c703'
+const ip = 'https://www.fastmock.site/mock/f48d6c1da53db1dd5b204b4a4d5673fe'
 
 // 统一配置请求
 const HTTP_REQUEST = axios.create({
