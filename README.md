@@ -66,6 +66,7 @@
    
    之前是参照[官方换肤案例](https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/advanced/theme.html#%E6%A0%B7%E5%BC%8F%E8%A6%86%E7%9B%96)来实现的,可以连同ElementUI的组件一起改变颜色, 由于此种
    方式比较繁琐可能出现未知bug, 因此目前采用直接保存一个颜色值来改变主题,在项目中通过this.$store.state.theme可以获取主题色值.
+   (更推荐的：可以采用css的var变量绑定在根元素来改变样式).
    
    3.页面锚点滚动参照了[这个开源项目](https://github.com/ityadong/VueAnchor).
    
